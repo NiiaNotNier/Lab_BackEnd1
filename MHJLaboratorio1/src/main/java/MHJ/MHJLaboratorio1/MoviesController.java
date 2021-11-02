@@ -6,8 +6,12 @@ import java.util.List;
 
 import javax.websocket.server.PathParam;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -66,6 +70,26 @@ public class MoviesController {
             }
 
         }
+        return null;
+    }
+
+    @PostMapping("/Movies")
+    public Movies AddMovie(@RequestBody Movies newMovie) {
+        movies.add(newMovie);
+        return newMovie;
+    }
+
+    @PutMapping("/Movies/{id}")
+    public Movies UpdateMovie(@PathVariable("id") int id, @RequestBody Movies updateMovie) {
+        Movies m = FindMovieByID(id);
+        m.setTitle(updateMovie.getTitle());
+        return m;
+    }
+    
+    @DeleteMapping("/Movies/{id}")
+    public Movies DeleteMovie(@PathVariable("id") int id) {
+        Movies m = FindMovieByID(id);
+        movies.remove(m);
         return null;
     }
 }
