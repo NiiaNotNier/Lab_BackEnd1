@@ -22,4 +22,50 @@ public class MoviesController {
         return movies;
     }
 
+    // los URLS hay que cambiarlos por que estan un poco pochos, pero los
+    // modificaremos mas adelante :)
+    @GetMapping("Movies/movies/id/{id}")
+    public Movies MovieById(@PathVariable("id") int id) {
+        return FindMovieByID(id);
+    }
+
+    // este también
+    @GetMapping("Movies/movies/title/{title}")
+    public Movies movieByTitle(@PathVariable("title") String title) {
+        return FindMovieByTitle(title);
+    }
+
+    // y por último...pero no por ello menos importante, también
+    @GetMapping("Movies/movies/year/{year}")
+    public Movies MovieByYear(@PathVariable("year") int year) {
+        return FindMovieByYear(year);
+    }
+
+    private Movies FindMovieByID(int id) {
+        for (Movies movie : movies) {
+            if (movie.getId() == id) {
+                return movie;
+            }
+        }
+        return null;
+    }
+
+    private Movies FindMovieByTitle(String title) {
+        for (Movies movie : movies) {
+            if (movie.getTitle() == title) {
+                return movie;
+            }
+        }
+        return null;
+    }
+
+    private Movies FindMovieByYear(int year) {
+        for (Movies movie : movies) {
+            if (movie.getYear() == year) {
+                return movie;
+            }
+
+        }
+
+    }
 }
