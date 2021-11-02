@@ -1,14 +1,14 @@
 package MHJ.MHJLaboratorio1;
 
 public class Movies {
-    public int Id;
+    public int id;
     public String title;
-    public int Year;
+    public int year;
 
     public Movies(int id, String title, int year) {
-        Id = id;
+        this.id = id;
         this.title = title;
-        Year = year;
+        this.year = year;
 
     }
 
@@ -25,18 +25,18 @@ public class Movies {
     }
 
     public int getYear() {
-        return Year;
+        return year;
     }
 
     public void setYear(int year) {
-        Year = year;
+        this.year = year;
     }
 
     public int getId() {
-        return Id;
+        return id;
     }
 
     public void setId(int id) {
-        Id = id;
+        this.id = id;
     }
 }
