@@ -1,11 +1,42 @@
 <html xmlns:th="http://www.thymeleaf.org">
+
 <body>
+
     <h1 th:text="#{Main.Movies}"></h1>
-    <span th:text = "#{lang.change}"></span>:
-    <select id= "locales">
+    <span th:text="#{lang.change}"></span>:
+    <select id="locales">
         <option value= ""></option>
-        <option value="en" th:text= "#{lang.en}"></option>
-        <option value="es" th:text= "#{lang.es}"></option>
+        <option value="en" th:text= "#lang=en">English</option>
+        <option value="es" th:text= "#{lang.es}">Español</option>
+        
     </select>
+
+    <!--
+    <form action="" method="post">
+        <select id="cars" onchange="this.form.submit()">
+                <option value= ""></option>
+                <option value="en" th:text= "#lang=en">English</option>
+                <option value="es" th:text= "#{lang.es}">Español</option>
+                
+            </select>
+        <input type="submit" name="submit" value="Submit">
+    </form>
+
+    <select name="language">
+        <option selected value="0"> Selecciona un idioma </option>
+            <optgroup label="Unión Europea"> 
+            <option value="lang=es">
+                <a href="lang=es">Español</a>
+            </option> 
+            <option value="en">Inglés</option> 
+            <option value="fr">Francés</option> 
+        </optgroup> 
+        <optgroup label="Asiáticos"> 
+            <option value="jp">Japonés</option> 
+        </optgroup> 
+     </select>
+     -->
+
 </body>
+
 </html>
