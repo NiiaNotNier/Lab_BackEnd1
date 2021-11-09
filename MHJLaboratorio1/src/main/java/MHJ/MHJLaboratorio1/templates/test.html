@@ -1,42 +1,27 @@
-<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        function changeLanguage(value){
+            window.location.replace(`/test?lang=${value}`)
+        }
+    </script>
+    <title>Document</title>
+</head>
 
 <body>
-
     <h1 th:text="#{Main.Movies}"></h1>
     <span th:text="#{lang.change}"></span>:
-    <select id="locales">
+    <select id="locales" onchange="changeLanguage(value)">
         <option value= ""></option>
-        <option value="en" th:text= "#lang=en">English</option>
-        <option value="es" th:text= "#{lang.es}">Español</option>
-        
+        <option value="en" th:text="#{lang.en}">English</option>
+        <option value="es" th:text="#{lang.es}">Español</option>
+        <option value="fr" th:text="#{lang.fr}">Français</option>
+        <option value="jp" th:text="#{lang.jp}">日本語</option>
     </select>
-
-    <!--
-    <form action="" method="post">
-        <select id="cars" onchange="this.form.submit()">
-                <option value= ""></option>
-                <option value="en" th:text= "#lang=en">English</option>
-                <option value="es" th:text= "#{lang.es}">Español</option>
-                
-            </select>
-        <input type="submit" name="submit" value="Submit">
-    </form>
-
-    <select name="language">
-        <option selected value="0"> Selecciona un idioma </option>
-            <optgroup label="Unión Europea"> 
-            <option value="lang=es">
-                <a href="lang=es">Español</a>
-            </option> 
-            <option value="en">Inglés</option> 
-            <option value="fr">Francés</option> 
-        </optgroup> 
-        <optgroup label="Asiáticos"> 
-            <option value="jp">Japonés</option> 
-        </optgroup> 
-     </select>
-     -->
-
 </body>
 
 </html>
