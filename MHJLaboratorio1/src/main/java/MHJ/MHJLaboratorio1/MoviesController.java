@@ -51,7 +51,7 @@ public class MoviesController {
                 return movie;
             }
         }
-        return null;
+        throw new ElementNotFoundException();
     }
 
     private Movies FindMovieByTitle(String title) {
@@ -60,7 +60,7 @@ public class MoviesController {
                 return movie;
             }
         }
-        return null;
+        throw new ElementNotFoundException();
     }
 
     private Movies FindMovieByYear(int year) {
@@ -70,7 +70,7 @@ public class MoviesController {
             }
 
         }
-        return null;
+        throw new ElementNotFoundException();
     }
 
     @PostMapping("/Movies")
@@ -85,7 +85,7 @@ public class MoviesController {
         m.setTitle(updateMovie.getTitle());
         return m;
     }
-    
+
     @DeleteMapping("/Movies/{id}")
     public Movies DeleteMovie(@PathVariable("id") int id) {
         Movies m = FindMovieByID(id);
