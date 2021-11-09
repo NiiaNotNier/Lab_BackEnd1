@@ -1,27 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script>
-        function changeLanguage(value){
-            window.location.replace(`/test?lang=${value}`)
-        }
-    </script>
-    <title>Document</title>
-</head>
-
+<html xmlns:th="http://www.thymeleaf.org">
 <body>
     <h1 th:text="#{Main.Movies}"></h1>
-    <span th:text="#{lang.change}"></span>:
-    <select id="locales" onchange="changeLanguage(value)">
+    <span th:text = "#{lang.change}"></span>:
+    <select id= "locales">
         <option value= ""></option>
-        <option value="en" th:text="#{lang.en}">English</option>
-        <option value="es" th:text="#{lang.es}">Español</option>
-        <option value="fr" th:text="#{lang.fr}">Français</option>
-        <option value="jp" th:text="#{lang.jp}">日本語</option>
+        <option value="en" th:text= "#{lang.en}"></option>
+        <option value="es" th:text= "#{lang.es}"></option>
     </select>
 </body>
-
 </html>
