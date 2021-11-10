@@ -28,7 +28,7 @@ public class MoviesController {
 
     // los URLS hay que cambiarlos por que estan un poco pochos, pero los
     // modificaremos mas adelante :)
-    @GetMapping("Movies/id/{id}")
+    @GetMapping("Movies/{id}")
     public Movies MovieById(@PathVariable("id") int id) {
         return FindMovieByID(id);
     }
@@ -56,7 +56,7 @@ public class MoviesController {
 
     private Movies FindMovieByTitle(String title) {
         for (Movies movie : movies) {
-            if (movie.getTitle() == title) {
+            if (movie.getTitle().contains(title)) {
                 return movie;
             }
         }
