@@ -28,19 +28,19 @@ public class MoviesController {
 
     // los URLS hay que cambiarlos por que estan un poco pochos, pero los
     // modificaremos mas adelante :)
-    @GetMapping("Movies/movies/id/{id}")
+    @GetMapping("Movies/id/{id}")
     public Movies MovieById(@PathVariable("id") int id) {
         return FindMovieByID(id);
     }
 
     // este también
-    @GetMapping("Movies/movies/title/{title}")
+    @GetMapping("Movies/title/{title}")
     public Movies movieByTitle(@PathVariable("title") String title) {
         return FindMovieByTitle(title);
     }
 
     // y por último...pero no por ello menos importante, también
-    @GetMapping("Movies/movies/year/{year}")
+    @GetMapping("Movies/year/{year}")
     public Movies MovieByYear(@PathVariable("year") int year) {
         return FindMovieByYear(year);
     }
