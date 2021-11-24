@@ -16,10 +16,18 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class MoviesController {
-    public static ArrayList<Movies> movies = new ArrayList(Arrays.asList(new Movies(1, "High School Musical", 2012),
-            new Movies(2, "Burlesque", 1997), new Movies(3, "Superman", 1990), new Movies(4, "Solo en Casa", 1999),
-            new Movies(5, "La chica de la curva", 2015), new Movies(6, "La huerfana", 2016),
-            new Movies(7, "Los chicos del Maiz", 2009)));
+    public static ArrayList<Movies> movies = new ArrayList(Arrays.asList(new Movies(1, "High School Musical", 2012,
+            "https://static.wikia.nocookie.net/doblaje/images/1/12/High_school_musical_xlg.jpg/revision/latest?cb=20200826175615&path-prefix=es"),
+            new Movies(2, "Burlesque", 1997, "https://pics.filmaffinity.com/Burlesque-618255359-large.jpg"),
+            new Movies(3, "Superman", 1990,
+                    "https://static.wikia.nocookie.net/doblaje/images/1/12/High_school_musical_xlg.jpg/revision/latest?cb=20200826175615&path-prefix=es"),
+            new Movies(4, "Solo en Casa", 1999,
+                    "https://static.wikia.nocookie.net/doblaje/images/1/12/High_school_musical_xlg.jpg/revision/latest?cb=20200826175615&path-prefix=es"),
+            new Movies(5, "La chica de la curva", 2015,
+                    "https://static.wikia.nocookie.net/doblaje/images/1/12/High_school_musical_xlg.jpg/revision/latest?cb=20200826175615&path-prefix=es"),
+            new Movies(6, "La huerfana", 2016, "https://pics.filmaffinity.com/orphan_the_orphan-466855209-msmall.jpg"),
+            new Movies(7, "Los chicos del Maiz", 2009,
+                    "https://static.wikia.nocookie.net/doblaje/images/1/12/High_school_musical_xlg.jpg/revision/latest?cb=20200826175615&path-prefix=es")));
 
     @GetMapping("Movies")
     public List<Movies> GetMovies() {
@@ -45,7 +53,7 @@ public class MoviesController {
         return FindMovieByYear(year);
     }
 
-    private Movies FindMovieByID(int id) {
+    public static Movies FindMovieByID(int id) {
         for (Movies movie : movies) {
             if (movie.getId() == id) {
                 return movie;
