@@ -27,14 +27,16 @@
         th:object="${movie}">
         <a th:href="@{|/movies/edit/*{id}|}">
             <span th:class="*{id} % 2 != 0? 'odd': _"
-            th:text="*{title}"></span>
+            th:text="*{title} "></span>
+            <span th:text="*{year}"></span>
+            <span th:text="*{description}"></span>
             <img src="../static/images/*{id}.jpg" width="150"
             th:src="@{images/*{id}.jpg}"/>
             <img th:src="@{images/*{id}.jpg}" />
             
         </a> 
        
-        <input class="btnDelete" type="submit" th:value="Eliminar" 
+        <input class="btnDelete" type="submit" th:value="Editar" 
                 th:url="@{|/v2/movies/*{id}|}"
                 th:extraInfo="*{id}" >
     </li>
