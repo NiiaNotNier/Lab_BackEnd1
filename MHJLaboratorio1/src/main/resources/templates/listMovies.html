@@ -31,8 +31,7 @@
         <header>
             <div class="top">
                 <div class="logo">
-                    <img class="logoWeb" src="../static/images/LogoCatMovies.jpg" 
-                    th:src="@{|images/LogoCatMovies.jpg|}" alt="logo de la web">
+                    <img class="logoWeb" th:src="@{|images/LogoCatMovies.jpg|}" alt="logo de la web">
                 </div>
                 <div class="container">
                     <p class="headerP"><a href="listMovies.html">
@@ -44,18 +43,16 @@
         </header>
 
         <main>
-            <form th:action="@{/movies/new}">
+            <!-- <form th:action="@{/movies/new}">
                 <input type="submit" th:value="#{new}">
-            </form> 
+            </form>  -->
             <div class="columnas">
                 <!-- contenedor -->
                 <div class="divsMovies" th:each="movie : ${movies}"
                     th:object="${movie}">
                     <div class="imgMovie">
-                        <a th:href="@{|/movies/edit/*{id}|}">
-                    
-                            <img src="../static/images/*{id}.jpg" width="150"
-                            th:src="@{|images/*{id}.jpg|}"/>
+                        <a th:href="@{|/movies/detail/*{id}|}">
+                            <img width="150" th:src="@{|images/*{id}.jpg|}"/>
                         </a>
                     </div>
                     <div class="titleMovie">
@@ -67,12 +64,15 @@
                         <a th:href="@{|/movies/delete/*{id}|}" class="btnDelete" url="@{|/movies/delete/*{id}|}" extraInfo="${id}">
                             Eliminar
                         </a>
-                        
+
                     </div>
-                </div>
-                    <input class="btnDelete" type="submit" th:value="Editar" 
-                            th:url="@{|/v2/movies/*{id}|}"
-                            th:extraInfo="*{id}" >
+                    <a th:href="@{|/movies/detail/*{id}|}" class="btnDelete" extraInfo="${id}">
+                        Añadir a lista
+                    </a>
+                    <a th:href="@{|/movies/detail/*{id}|}" class="btnDelete" extraInfo="${id}">
+                        Detalles
+                    </a>   
+                </div>   
             </div>
             <hr>
         </main>
@@ -80,8 +80,7 @@
         <footer>
             <div class="row">
                 <div class="column left">
-                    <img class="logoWeb" src="../static/images/FooterCat.jpg"
-                    th:src="@{|images/FooterCat.jpg|}"  alt="footer de la web">
+                    <img class="logoWeb" th:src="@{|images/FooterCat.jpg|}"  alt="footer de la web">
                 </div>
                 <div class="column right">
                     <div class="textoFormulario">
