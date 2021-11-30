@@ -1,25 +1,6 @@
 <html xmlns:th="http://www.thymeleaf.org">
-
-<head><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-   
-    <script>
-        $(document).ready(function(){
-            $(".btnDelete").click(function(){
-                if (confirm("¿Desea eliminar este elemento?"))
-                {
-                    let ID = $(this).attr('extraInfo');
-                    let URL = $(this).attr('url');
-                    $.ajax({
-                        type: 'DELETE',
-                        url: URL,
-                        contentType: 'application/json'
-                    }).done(function( data, textStatus, jqXHR ) {
-                        window.location = "/movies"
-                    });
-                }
-            });
-        });  
-    </script>
+<head>
+    
 </head>
 <body>
     <form th:action="@{/movies/new}"><input type="submit" th:value="#{new}"></form> 
@@ -28,16 +9,16 @@
         <a th:href="@{|/movies/edit/*{id}|}">
             <span th:class="*{id} % 2 != 0? 'odd': _"
             th:text="*{title} "></span>
-            <span th:text="*{year}"></span>
-            <span th:text="*{description}"></span>
-            <img  width="150"
-            th:src="@{|images/*{id}.jpg|}"/>
             
-            
+            <span th:text="*{year}"></span>  
+            <h2 th:if="${movie.year == 2021}" 
+            >¡NOVEDAD!</h2>       
         </a> 
-       
+        <img  width="150"
+        th:src="@{|images/*{id}.jpg|}"/>
+        <p th:text="*{description}"></p>
         <input class="btnDetalles" type="submit" th:value="Detalles" 
-                th:url="@{|/v2/movies/*{id}|}"
+                th:url="@{|/movies/*{id}|}"
                 th:extraInfo="*{id}" >
     </li>
 </body>

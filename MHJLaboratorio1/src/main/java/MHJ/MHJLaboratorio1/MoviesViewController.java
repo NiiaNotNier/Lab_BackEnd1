@@ -16,14 +16,21 @@ public class MoviesViewController {
 
     @GetMapping("/movies/new")
     public ModelAndView CreateMovie() {
-        ModelAndView m = new ModelAndView("detailMovies");
+        ModelAndView m = new ModelAndView("detailsMovies");
         m.addObject("movies", new Movies());
         return m;
     }
 
     @GetMapping("/movies/edit/{id}")
     public ModelAndView CreateMovie(@PathVariable("id") int id) {
-        ModelAndView m = new ModelAndView("detailMovies");
+        ModelAndView m = new ModelAndView("detailsMovies");
+        m.addObject("movies", MoviesController.FindMovieByID(id));
+        return m;
+    }
+
+    @GetMapping("/movies/{id}")
+    public ModelAndView DetailsMovie(@PathVariable("id") int id) {
+        ModelAndView m = new ModelAndView("detailsMovies");
         m.addObject("movies", MoviesController.FindMovieByID(id));
         return m;
     }
