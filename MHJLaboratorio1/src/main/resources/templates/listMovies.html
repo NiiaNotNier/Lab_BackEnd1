@@ -26,13 +26,16 @@
     <li th:each="movie : ${movies}"
         th:object="${movie}">
         <a th:href="@{|/movies/edit/*{id}|}">
+            <img src="../static/images/*{id}.jpg" width="150"
+            th:src="@{|images/*{id}.jpg|}"/>
             <span th:class="*{id} % 2 != 0? 'odd': _"
             th:text="*{title} "></span>
             <span th:text="*{year}"></span>
-            <span th:text="*{description}"></span>
-            <img src="../static/images/*{id}.jpg" width="150"
-            th:src="@{images/*{id}.jpg}"/>
-            <img th:src="@{images/*{id}.jpg}" />
+            <span th:text="*{description}"></span> 
+            <a th:href="@{|/movies/delete/*{id}|}" class="btnDelete" url="@{|/movies/delete/*{id}|}" extraInfo="${id}">Eliminar</a>
+            <h2 th:if="${movie.year == 2021}">¡NOVEDAD!</h2>
+            </div>
+
             
         </a> 
        
