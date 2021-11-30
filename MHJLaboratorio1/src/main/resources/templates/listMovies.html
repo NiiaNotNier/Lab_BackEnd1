@@ -1,47 +1,99 @@
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PelisGatunas</title>
+        <link th:href ="@{/css/Archivo.css}" rel="stylesheet"/>
 
-<head><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-   
-    <script>
-        $(document).ready(function(){
-            $(".btnDelete").click(function(){
-                if (confirm("¿Desea eliminar este elemento?"))
-                {
-                    let ID = $(this).attr('extraInfo');
-                    let URL = $(this).attr('url');
-                    $.ajax({
-                        type: 'DELETE',
-                        url: URL,
-                        contentType: 'application/json'
-                    }).done(function( data, textStatus, jqXHR ) {
-                        window.location = "/movies"
-                    });
-                }
-            });
-        });  
-    </script>
-</head>
-<body>
-    <form th:action="@{/movies/new}"><input type="submit" th:value="#{new}"></form> 
-    <li th:each="movie : ${movies}"
-        th:object="${movie}">
-        <a th:href="@{|/movies/edit/*{id}|}">
-            <img src="../static/images/*{id}.jpg" width="150"
-            th:src="@{|images/*{id}.jpg|}"/>
-            <span th:class="*{id} % 2 != 0? 'odd': _"
-            th:text="*{title} "></span>
-            <span th:text="*{year}"></span>
-            <span th:text="*{description}"></span> 
-            <a th:href="@{|/movies/delete/*{id}|}" class="btnDelete" url="@{|/movies/delete/*{id}|}" extraInfo="${id}">Eliminar</a>
-            <h2 th:if="${movie.year == 2021}">¡NOVEDAD!</h2>
+        <script>
+            $(document).ready(function(){
+                $(".btnDelete").click(function(){
+                    if (confirm("¿Desea eliminar este elemento?"))
+                    {
+                        let ID = $(this).attr('extraInfo');
+                        let URL = $(this).attr('url');
+                        $.ajax({
+                            type: 'DELETE',
+                            url: URL,
+                            contentType: 'application/json'
+                        }).done(function( data, textStatus, jqXHR ) {
+                            window.location = "/movies"
+                        });
+                    }
+                });
+            });  
+        </script>
+    </head>
+
+    <body>
+        <header>
+            <div class="top">
+                <div class="logo">
+                    <img class="logoWeb" src="../static/images/LogoCatMovies.jpg" 
+                    th:src="@{|images/LogoCatMovies.jpg|}" alt="logo de la web">
+                </div>
+                <div class="container">
+                    <p class="headerP"><a href="listMovies.html">
+                        Meowies
+                    </a></p>
+                </div>
             </div>
+            <hr>
+        </header>
 
-            
-        </a> 
-       
-        <input class="btnDelete" type="submit" th:value="Editar" 
-                th:url="@{|/v2/movies/*{id}|}"
-                th:extraInfo="*{id}" >
-    </li>
-</body>
+        <main>
+            <form th:action="@{/movies/new}">
+                <input type="submit" th:value="#{new}">
+            </form> 
+            <div class="columnas">
+                <!-- contenedor -->
+                <div class="divsMovies" th:each="movie : ${movies}"
+                    th:object="${movie}">
+                    <div class="imgMovie">
+                        <a th:href="@{|/movies/edit/*{id}|}">
+                    
+                            <img src="../static/images/*{id}.jpg" width="150"
+                            th:src="@{|images/*{id}.jpg|}"/>
+                        </a>
+                    </div>
+                    <div class="titleMovie">
+                        <span class="parpadea text" th:if="${movie.year == 2021}"><strong>¡NOVEDAD!</strong><br></span>
+                        <span class="bodyStyle titulin" th:text="*{title} "></span>
+                        <br>
+                        <span class="bodyStyle" th:text="*{year}"></span>
+                        <br>
+                        <a th:href="@{|/movies/delete/*{id}|}" class="btnDelete" url="@{|/movies/delete/*{id}|}" extraInfo="${id}">
+                            Eliminar
+                        </a>
+                        
+                    </div>
+                </div>
+                    <input class="btnDelete" type="submit" th:value="Editar" 
+                            th:url="@{|/v2/movies/*{id}|}"
+                            th:extraInfo="*{id}" >
+            </div>
+            <hr>
+        </main>
+
+        <footer>
+            <div class="row">
+                <div class="column left">
+                    <img class="logoWeb" src="../static/images/FooterCat.jpg"
+                    th:src="@{|images/FooterCat.jpg|}"  alt="footer de la web">
+                </div>
+                <div class="column right">
+                    <div class="textoFormulario">
+                        <p>Gracias por visitar Meowies, contacte con nosotros usando el formulario del siguiente enlace si necesita ayuda</p>
+                    </div>
+                    <div class="linkFormulario">
+                        <a target="_blank" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley">
+                        Formulario
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
 </html>
