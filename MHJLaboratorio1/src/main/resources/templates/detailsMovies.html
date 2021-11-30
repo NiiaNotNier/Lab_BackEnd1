@@ -1,24 +1,21 @@
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:insert="~{fragments/langSelector.html :: head}">
-</head>
+    <head>
 
+    </head>
 <body>
-    <li th:each="movie : ${movies}"
-        th:object="${movie}">
-        <a th:href="@{|/movies/edit/*{id}|}">
-            <span th:class="*{id} % 2 != 0? 'odd': _"
-            th:text="*{title} "></span>
+    <li th:each="movie : ${listMovies} " th:object="${movie}">
+    <span th:class="*{id} % 2 != 0? 'odd': _"
+    th:text="*{title}"></span>
             
-            <span th:text="*{year}"></span>  
+            <span th:text="  *{year}  "></span>  
             <h2 th:if="${movie.year == 2021}" 
             >¡NOVEDAD!</h2>       
-        </a> 
+        
         <img  width="150"
         th:src="@{|images/*{id}.jpg|}"/>
         <p th:text="*{description}"></p>
         <input class="home" type="submit" th:value="Home" 
-                th:url="@{|/movies/|}"
-                 >
-    </li>
+                th:href="@{|/movies|}"/>            
+    
 </body>
 </html>

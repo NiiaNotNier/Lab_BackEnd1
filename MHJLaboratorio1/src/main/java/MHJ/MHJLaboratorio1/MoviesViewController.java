@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
+
+// creacion constructor con el moviecontroller y luego la lista de mi list
 public class MoviesViewController {
     @GetMapping("/movies")
     public ModelAndView GetMovies() {
@@ -28,10 +30,11 @@ public class MoviesViewController {
         return m;
     }
 
-    @GetMapping("/movies/{id}")
+    @GetMapping("movies/detail/{id}")
     public ModelAndView DetailsMovie(@PathVariable("id") int id) {
         ModelAndView m = new ModelAndView("detailsMovies");
-        m.addObject("movies", MoviesController.FindMovieByID(id));
+        Movies i = MoviesController.FindMovieByID(id);
+        m.addObject("movie", i);
         return m;
     }
 }

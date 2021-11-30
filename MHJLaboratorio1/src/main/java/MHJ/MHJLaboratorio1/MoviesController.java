@@ -22,7 +22,7 @@ public class MoviesController {
             new Movies(3, "Superman", 1990, "Thriller superheroes"),
             new Movies(4, "Solo en Casa", 1999, "Pelicula que te hara llorar de la risa"),
             new Movies(5, "La chica de la curva", 2015, "Miedo asegurado"), new Movies(6, "La huerfana", 2016, "Bu"),
-            new Movies(7, "Los chicos del Maiz", 2009, "Obreros hasta el fin")));
+            new Movies(7, "Los chicos del Maiz", 2021, "Obreros hasta el fin")));
 
     @GetMapping("Movies")
     public List<Movies> GetMovies() {
