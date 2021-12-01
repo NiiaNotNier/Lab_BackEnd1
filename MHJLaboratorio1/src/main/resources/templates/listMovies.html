@@ -43,11 +43,7 @@
         </header>
 
         <main>
-            <!-- <form th:action="@{/movies/new}">
-                <input type="submit" th:value="#{new}">
-            </form>  -->
             <div class="columnas">
-                <!-- contenedor -->
                 <div class="divsMovies" th:each="movie : ${movies}"
                     th:object="${movie}">
                     <div class="imgMovie">
@@ -57,22 +53,37 @@
                     </div>
                     <div class="titleMovie">
                         <span class="parpadea text" th:if="${movie.year == 2021}"><strong>¡NOVEDAD!</strong><br></span>
-                        <span class="bodyStyle titulin" th:text="*{title} "></span>
+                        <div th:switch="${movie.tipoPelicula}">
+                            <span th:case="'Miedo'" class="bodyStyle titulin tipoPeliMiedo" th:text="*{title} "></span> 
+                            <span th:case="'Accion'" class="bodyStyle titulin tipoPeliAccion" th:text="*{title} "></span> 
+                            <span th:case="'Aventuras'" class="bodyStyle titulin tipoPeliAventuras" th:text="*{title} "></span> 
+                            <span th:case="'Familiar'" class="bodyStyle titulin tipoPeliFamiliar" th:text="*{title} "></span> 
+                            <span th:case="'Musical'" class="bodyStyle titulin tipoPeliMusical" th:text="*{title} "></span> 
+                        </div>
                         <br>
                         <span class="bodyStyle" th:text="*{year}"></span>
                         <br>
+                    </div>
+                    <div class="actionButtons">
                         <a th:href="@{|/movies/delete/*{id}|}" class="btnDelete" url="@{|/movies/delete/*{id}|}" extraInfo="${id}">
                             Eliminar
                         </a>
-
+                        <a th:href="@{|/movies/detail/*{id}|}" class="btnDelete" style="color: rgb(255, 81, 0)" extraInfo="${id}">
+                            Añadir a lista
+                        </a>
+                        <a th:href="@{|/movies/detail/*{id}|}" class="btnDelete" style="color: orange" extraInfo="${id}">
+                            Detalles
+                        </a>   
                     </div>
-                    <a th:href="@{|/movies/detail/*{id}|}" class="btnDelete" extraInfo="${id}">
-                        Añadir a lista
-                    </a>
-                    <a th:href="@{|/movies/detail/*{id}|}" class="btnDelete" extraInfo="${id}">
-                        Detalles
-                    </a>   
-                </div>   
+                </div>
+            </div>
+            <div class="cuadraditos">
+                Tipos de película por colores: 
+                <div class="poligMiedo">Miedo</div>
+                <div class="poligAccion">Acción</div>
+                <div class="poligAventuras">Aventuras</div>
+                <div class="poligFamiliar">Familiar</div>
+                <div class="poligMusical">Musical</div>
             </div>
             <hr>
         </main>

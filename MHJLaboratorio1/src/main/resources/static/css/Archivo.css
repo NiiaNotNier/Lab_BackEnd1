@@ -94,7 +94,7 @@ p a:hover {
     text-align: center;
     display: grid;
     grid-template-columns: 40% 40%;
-    margin-top: 1%;
+    margin-top: 2%;
 }
 
 .titleMovie{
@@ -110,7 +110,80 @@ p a:hover {
 
 .titulin{
     font-size: 25px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    
 }
+/* Tipos de películas */
+.tipoPeliMiedo{
+    border:2px solid yellow;
+}
+
+.tipoPeliAccion{
+    border:2px solid orange;
+}
+
+.tipoPeliAventuras{
+    border:2px solid greenyellow;
+}
+
+.tipoPeliFamiliar{
+    border:2px solid burlywood;
+}
+
+.tipoPeliMusical{
+    border:2px solid purple;
+}
+
+.cuadraditos{
+    display: flex;
+    justify-content:center;
+    margin: 2% 0%;
+    color: white;
+    font-size: 20px;
+}
+
+.poligMiedo{
+    padding: 0% 1%;
+    margin-left: 1%;
+    height:25px;
+    background: yellow;
+    border-radius: 20%;
+    color: black;
+}
+
+.poligAccion{
+    padding: 0% 1%;
+    margin-left: 1%;
+    height:25px;
+    background: orange;
+    border-radius: 20%;
+    color: black;
+}
+.poligAventuras{
+    padding: 0% 1%;
+    margin-left: 1%;
+    height:25px;
+    background: greenyellow;
+    border-radius: 20%;
+    color: black;
+}
+.poligFamiliar{
+    padding: 0% 1%;
+    margin-left: 1%;
+    height:25px;
+    background: burlywood;
+    border-radius: 20%;
+    color: black;
+}
+.poligMusical{
+    padding: 0% 1%;
+    margin-left: 1%;
+    height:25px;
+    background: purple;
+    border-radius: 20%;
+    color: black;
+}
+/* Fin tipos de películas */
 
 .btnDelete{
     text-decoration: none;
