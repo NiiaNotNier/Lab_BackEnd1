@@ -17,7 +17,7 @@ public class MoviesViewController {
     @GetMapping("/movies/new")
     public ModelAndView CreateMovie() {
         ModelAndView m = new ModelAndView("detailsMovies");
-        m.addObject("movies", new Movies());
+        m.addObject("movies", MoviesController.moviesMyList);
         return m;
     }
 

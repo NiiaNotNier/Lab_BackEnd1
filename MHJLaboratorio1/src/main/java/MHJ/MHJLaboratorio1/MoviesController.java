@@ -28,8 +28,17 @@ public class MoviesController {
             new Movies(6, "Astartes", 2021, "Los Marines Espaciales hacen pew pew a los aliens y win-win, buena calidad", "Accion"),
             new Movies(7, "Los chicos del Maiz", 2009, "Obreros hasta el fin", "Miedo"),
             new Movies(8, "Black Widow", 2021,
-                    "Natasha Romanoff, alias Viuda Negra, se enfrenta a los capítulos más oscuros de su historia", "Accion")));
+                    "Natasha Romanoff, alias Viuda Negra, se enfrenta a los capítulos más oscuros de su historia", "Accion"))
+    );
 
+    public static ArrayList<Movies> moviesMyList = new ArrayList(Arrays.asList(
+        ));
+
+    @GetMapping("MoviesMyList")
+    public List <Movies> GetMoviesMyList(){
+        return moviesMyList;
+    }
+                   
     @GetMapping("Movies")
     public List<Movies> GetMovies() {
         return movies;
@@ -89,14 +98,14 @@ public class MoviesController {
     }
 
     @PutMapping("/Movies/{id}")
-    public Movies UpdateMovie(@PathVariable("id") int id, @RequestBody Movies updateMovie) {
+    public Movies UpdateMovie(@PathVariable("id") int id, @RequestBody Movies updateMovie)throws Exception {
         Movies m = FindMovieByID(id);
         m.setTitle(updateMovie.getTitle());
         return m;
     }
 
     @DeleteMapping("/Movies/{id}")
-    public Movies DeleteMovie(@PathVariable("id") int id) {
+    public Movies DeleteMovie(@PathVariable("id") int id) throws Exception {
         Movies m = FindMovieByID(id);
         movies.remove(m);
         return null;
