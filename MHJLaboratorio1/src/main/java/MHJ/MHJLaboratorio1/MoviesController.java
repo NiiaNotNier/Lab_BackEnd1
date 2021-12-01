@@ -8,21 +8,27 @@ import javax.websocket.server.PathParam;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @RestController
 public class MoviesController {
     public static ArrayList<Movies> movies = new ArrayList(Arrays.asList(
-            new Movies(1, "High School Musical", 2021, "Musica para jovenes"),
-            new Movies(2, "Burlesque", 1997, "Musica para adultos"),
-            new Movies(3, "Superman", 1990, "Thriller superheroes"),
-            new Movies(4, "Solo en Casa", 1999, "Pelicula que te hara llorar de la risa"),
-            new Movies(5, "La chica de la curva", 2015, "Miedo asegurado"), new Movies(6, "La huerfana", 2016, "Bu"),
-            new Movies(7, "Los chicos del Maiz", 2021, "Obreros hasta el fin")));
+            new Movies(1, "High School Musical", 2006, "Musica para jovenes", "Musical"),
+            new Movies(2, "Burlesque", 2010, "Musica para adultos", "Musical"),
+            new Movies(3, "Superman", 1978, "Thriller superheroes", "Aventuras"),
+            new Movies(4, "Solo en Casa", 1990, "Pelicula que te hara llorar de la risa", "Familiar"),
+            new Movies(5, "Sé lo que hicisteis el último verano", 1997, "Miedo asegurado", "Miedo"),
+            new Movies(6, "Astartes", 2021, "Los Marines Espaciales hacen pew pew a los aliens y win-win, buena calidad", "Accion"),
+            new Movies(7, "Los chicos del Maiz", 2009, "Obreros hasta el fin", "Miedo"),
+            new Movies(8, "Black Widow", 2021,
+                    "Natasha Romanoff, alias Viuda Negra, se enfrenta a los capítulos más oscuros de su historia", "Accion")));
 
     @GetMapping("Movies")
     public List<Movies> GetMovies() {

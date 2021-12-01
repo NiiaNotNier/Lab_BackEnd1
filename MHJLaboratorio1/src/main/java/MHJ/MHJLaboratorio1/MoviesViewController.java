@@ -37,4 +37,11 @@ public class MoviesViewController {
         m.addObject("movie", i);
         return m;
     }
+
+    @GetMapping("/movies/miLista")
+    public ModelAndView GetMoviesLista() {
+        ModelAndView m = new ModelAndView("miLista");
+        m.addObject("movies", MoviesController.movies);
+        return m;
+    }
 }
