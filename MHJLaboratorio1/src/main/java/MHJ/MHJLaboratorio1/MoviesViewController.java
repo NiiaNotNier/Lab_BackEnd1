@@ -16,13 +16,6 @@ public class MoviesViewController {
         return m;
     }
 
-    @GetMapping("/movies/new")
-    public ModelAndView CreateMovie() {
-        ModelAndView m = new ModelAndView("detailsMovies");
-        m.addObject("movies", MoviesController.moviesMyList);
-        return m;
-    }
-
     @GetMapping("/movies/edit/{id}")
     public ModelAndView CreateMovie(@PathVariable("id") int id) {
         ModelAndView m = new ModelAndView("detailsMovies");
@@ -40,8 +33,8 @@ public class MoviesViewController {
 
     @GetMapping("/movies/miLista")
     public ModelAndView GetMoviesLista() {
-        ModelAndView m = new ModelAndView("miLista");
-        m.addObject("movies", MoviesController.movies);
+        ModelAndView m = new ModelAndView("listMovies");
+        m.addObject("movies", MoviesController.moviesMyList);
         return m;
     }
 
