@@ -97,9 +97,21 @@ p a:hover {
     margin-top: 2%;
 }
 
+.divsDetails {
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    margin-top: 2%;
+}
+
 .titleMovie{
     text-align: left;
     margin-top: 25%;
+}
+
+.titleDetails{
+    text-align: left;
+    margin-top: 15%;
 }
 
 .bodyStyle{
