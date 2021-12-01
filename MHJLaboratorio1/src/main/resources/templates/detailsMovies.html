@@ -12,7 +12,7 @@
         <header>
             <div class="top">
                 <div class="logo">
-                    <img class="logoWeb" th:src="@{|images/LogoCatMovies.jpg|}" alt="logo de la web">
+                    <img class="logoWeb" th:src="@{|/images/LogoCatMovies.jpg|}" alt="logo de la web">
                 </div>
                 <div class="container">
                     <p class="headerP"><a href="listMovies.html">
@@ -22,28 +22,28 @@
             </div>
             <hr>
         </header>
-<!--
+
         <main>
             <form th:action="@{/movies/new}">
                 <input type="submit" th:value="#{new}">
             </form>  
             <div class="imgMovie">
-                <img width="150" th:src="@{|images/*{id}.jpg|}"/>
+                
 
                 <a th:href="@{|/movies/detail/*{id}|}">
-                    <img  width="150" th:src="@{|images/*{id}.jpg|}"/>
+                    <img  width="150" th:src="@{|/images/*{id}.jpg|}"/>
                 </a>
                 
             </div>
             <div class="titleMovie">
                 <span class="parpadea text" th:if="${movie.year == 2021}"><strong>¡NOVEDAD!</strong><br></span>
-                <span class="bodyStyle titulin" th:text="*{title} "></span>
+                <span class="bodyStyle titulin" th:text="${movie.title} "></span>
                 
                 <br>
-                <span class="bodyStyle" th:text="*{year}"></span>  
-                <h2 th:if="${movie.year == 2021}" >¡NOVEDAD!</h2>
+                <span class="bodyStyle" th:text="${movie.year}"></span>  
+                
                 <br>
-                <p th:text="*{description}"></p>
+                <p th:text="${movie.description}"></p>
             </div> 
             <input class="home" type="submit" th:value="Home" 
                     th:url="@{|/movies/|}">
@@ -54,7 +54,7 @@
             <div class="row">
                 <div class="column left">
                     <img class="logoWeb" src="../static/images/FooterCat.jpg"
-                    th:src="@{|images/FooterCat.jpg|}"  alt="footer de la web">
+                    th:src="@{|/images/FooterCat.jpg|}"  alt="footer de la web">
                 </div>
                 <div class="column right">
                     <div class="textoFormulario">
@@ -68,6 +68,6 @@
                 </div>
             </div>
         </footer>
-        -->
+        
     </body>
 </html>

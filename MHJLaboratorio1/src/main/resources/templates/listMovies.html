@@ -31,7 +31,7 @@
         <header>
             <div class="top">
                 <div class="logo">
-                    <img class="logoWeb" th:src="@{|images/LogoCatMovies.jpg|}" alt="logo de la web">
+                    <img class="logoWeb" th:src="@{|/images/LogoCatMovies.jpg|}" alt="logo de la web">
                 </div>
                 <div class="container">
                     <p class="headerP"><a href="listMovies.html">
@@ -68,10 +68,10 @@
                         <a th:href="@{|/movies/delete/*{id}|}" class="btnDelete" url="@{|/movies/delete/*{id}|}" extraInfo="${id}">
                             Eliminar
                         </a>
-                        <a th:href="@{|/movies/detail/*{id}|}" class="btnDelete" style="color: rgb(255, 81, 0)" extraInfo="${id}">
+                        <a th:href="@{|/movies/detail/*{id}|}" class="btnAdd" style="color: rgb(255, 81, 0)" extraInfo="${id}">
                             Añadir a lista
                         </a>
-                        <a th:href="@{|/movies/detail/*{id}|}" class="btnDelete" style="color: orange" extraInfo="${id}">
+                        <a th:href="@{|/movies/detail/*{id}|}" class="btnDetails" style="color: orange" extraInfo="${id}">
                             Detalles
                         </a>   
                     </div>
