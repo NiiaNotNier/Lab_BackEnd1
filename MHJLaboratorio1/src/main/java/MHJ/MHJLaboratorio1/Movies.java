@@ -5,13 +5,14 @@ public class Movies {
     public String title;
     public int year;
     public String description;
+    public String tipoPelicula;
 
-    public Movies(int id, String title, int year, String description) {
+    public Movies(int id, String title, int year, String description, String tipoPelicula) {
         this.id = id;
         this.title = title;
         this.year = year;
         this.description = description;
-
+        this.tipoPelicula = tipoPelicula;
     }
 
     public Movies() {
@@ -48,5 +49,13 @@ public class Movies {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getTipoPelicula() {
+        return tipoPelicula;
+    }
+
+    public void setTipoPelicula(String tipoPelicula) {
+        this.tipoPelicula = tipoPelicula;
     }
 }

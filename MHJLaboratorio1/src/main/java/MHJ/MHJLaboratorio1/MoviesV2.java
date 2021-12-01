@@ -11,8 +11,8 @@ public class MoviesV2 extends Movies {
 
     }
 
-    public MoviesV2(int _id, String _title, int _year, String _lang, String img) {
-        super(_id, _title, _year, img);
+    public MoviesV2(int _id, String _title, int _year, String _lang, String img, String _tipoPeli) {
+        super(_id, _title, _year, img, _tipoPeli);
         this.lang = _lang;
     }
 
