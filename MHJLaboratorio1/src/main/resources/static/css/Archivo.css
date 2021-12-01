@@ -185,7 +185,7 @@ p a:hover {
 }
 /* Fin tipos de películas */
 
-.btnDelete{
+.buttonAction{
     text-decoration: none;
     font-size: 20px;
     color: red;
