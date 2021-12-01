@@ -20,6 +20,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @RestController
 public class MoviesController {
     public static ArrayList<Movies> movies = new ArrayList(Arrays.asList(
+
             new Movies(1, "High School Musical", 2006, "Musica para jovenes", "Musical"),
             new Movies(2, "Burlesque", 2010, "Musica para adultos", "Musical"),
             new Movies(3, "Superman", 1978, "Thriller superheroes", "Aventuras"),
@@ -35,20 +36,16 @@ public class MoviesController {
         return movies;
     }
 
-    // los URLS hay que cambiarlos por que estan un poco pochos, pero los
-    // modificaremos mas adelante :)
     @GetMapping("Movies/{id}")
     public Movies MovieById(@PathVariable("id") int id) {
         return FindMovieByID(id);
     }
 
-    // este también
     @GetMapping("Movies/title/{title}")
     public Movies movieByTitle(@PathVariable("title") String title) {
         return FindMovieByTitle(title);
     }
 
-    // y por último...pero no por ello menos importante, también
     @GetMapping("Movies/year/{year}")
     public Movies MovieByYear(@PathVariable("year") int year) {
         return FindMovieByYear(year);
