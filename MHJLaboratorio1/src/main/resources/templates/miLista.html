@@ -22,8 +22,17 @@
             </div>
             <hr>
         </header>
-<!--
+
         <main>
+            <div class="actionButtons">
+                <a th:href="@{|/movies/detail/*{id}|}" class="buttonAction" style="color: rgb(255, 81, 0)" extraInfo="${id}">
+                    Borrar película
+                </a>
+                <a th:href="@{|/movies|}" class="buttonAction" style="color: #FF1177" extraInfo="${id}">
+                    Home
+                </a>  
+            </div>
+<!--
             <form th:action="@{/movies/new}">
                 <input type="submit" th:value="#{new}">
             </form>  
@@ -48,8 +57,9 @@
             <input class="home" type="submit" th:value="Home" 
                     th:url="@{|/movies/|}">
             <hr>
+        -->
         </main>
-    
+    <!--
         <footer>
             <div class="row">
                 <div class="column left">
