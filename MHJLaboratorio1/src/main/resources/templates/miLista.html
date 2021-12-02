@@ -6,33 +6,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>PelisGatunas</title>
         <link th:href ="@{/css/Archivo.css}" rel="stylesheet"/>
-
-        <script>
-            $(document).ready(function(){
-                $(".btnDelete").click(function(){
-                    if (confirm("¿Desea eliminar este elemento?"))
-                    {
-                        let ID = $(this).attr('extraInfo');
-                        let URL = $(this).attr('url');
-                        $.ajax({
-                            type: 'DELETE',
-                                
-                            url: URL,
-                            contentType: 'application/json'
-                        }).done(function( data, textStatus, jqXHR ) {
-                            window.location = "/movies"
-                        });
-                    }
-                });
-            });  
-        </script>
     </head>
 
     <body>
         <header>
             <div class="top">
                 <div class="logo">
-                    <img class="logoWeb" th:src="@{|images/LogoCatMovies.jpg|}" alt="logo de la web">
+                    <img class="logoWeb" th:src="@{|/images/LogoCatMovies.jpg|}" alt="logo de la web">
                 </div>
                 <div class="container">
                     <p class="headerP"><a th:href="@{|/movies|}">
@@ -45,7 +25,7 @@
 
         <main>
             <div class="columnas">
-                <div class="divsMovies" th:each="movie : ${movies}"
+                <div class="divsMovies" th:each="movie : ${myListMovies}"
                     th:object="${movie}">
                     <div class="imgMovie">
                         <a th:href="@{|/movies/detail/*{id}|}">
@@ -69,9 +49,8 @@
                         <a th:href="@{|/movies/miLista|}" class="buttonAction" style="color: #FF1177" extraInfo="${id}">
                             MiLista
                         </a>
-                        <a name="" id="" th:text="#{save}" 
-                            th:href="@{'/myList/add?id=' + *{id}}" role="button" onclick="" class="buttonAction" style="color: rgb(255, 81, 0)">
-                            Añadir a la lista
+                        <a th:href="@{|/movies/detail/*{id}|}" class="buttonAction" style="color: rgb(255, 81, 0)" >
+                            Añadir a lista
                         </a>
                         <a th:href="@{|/movies/detail/*{id}|}" class="buttonAction" style="color: orange" extraInfo="${id}">
                             Detalles
@@ -100,10 +79,12 @@
             <hr>
         </main>
 
+    
         <footer>
             <div class="row">
                 <div class="column left">
-                    <img class="logoWeb" th:src="@{|images/FooterCat.jpg|}"  alt="footer de la web">
+                    <img class="logoWeb" src="../static/images/FooterCat.jpg"
+                    th:src="@{|/images/FooterCat.jpg|}"  alt="footer de la web">
                 </div>
                 <div class="column right">
                     <div class="textoFormulario">
@@ -117,5 +98,6 @@
                 </div>
             </div>
         </footer>
+       
     </body>
 </html>
