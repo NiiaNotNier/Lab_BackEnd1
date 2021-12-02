@@ -26,10 +26,12 @@ public class MoviesController {
             new Movies(3, "Superman", 1978, "Thriller superheroes", "Aventuras"),
             new Movies(4, "Solo en Casa", 1990, "Pelicula que te hara llorar de la risa", "Familiar"),
             new Movies(5, "Sé lo que hicisteis el último verano", 1997, "Miedo asegurado", "Miedo"),
-            new Movies(6, "Astartes", 2021, "Los Marines Espaciales hacen pew pew a los aliens y win-win, buena calidad", "Accion"),
+            new Movies(6, "Astartes", 2021,
+                    "Los Marines Espaciales hacen pew pew a los aliens y win-win, buena calidad", "Accion"),
             new Movies(7, "Los chicos del Maiz", 2009, "Obreros hasta el fin", "Miedo"),
             new Movies(8, "Black Widow", 2021,
-                    "Natasha Romanoff, alias Viuda Negra, se enfrenta a los capítulos más oscuros de su historia", "Accion")));
+                    "Natasha Romanoff, alias Viuda Negra, se enfrenta a los capítulos más oscuros de su historia",
+                    "Accion")));
 
     @GetMapping("Movies")
     public List<Movies> GetMovies() {
@@ -37,7 +39,7 @@ public class MoviesController {
     }
 
     @GetMapping("Movies/{id}")
-    public Movies MovieById(@PathVariable("id") int id) {
+    public static Movies MovieById(@PathVariable("id") int id) {
         return FindMovieByID(id);
     }
 

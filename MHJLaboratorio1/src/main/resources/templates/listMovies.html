@@ -16,6 +16,7 @@
                         let URL = $(this).attr('url');
                         $.ajax({
                             type: 'DELETE',
+                                
                             url: URL,
                             contentType: 'application/json'
                         }).done(function( data, textStatus, jqXHR ) {
@@ -68,8 +69,9 @@
                         <a th:href="@{|/movies/miLista|}" class="buttonAction" style="color: #FF1177" extraInfo="${id}">
                             MiLista
                         </a>
-                        <a th:href="@{|/movies/detail/*{id}|}" class="buttonAction" style="color: rgb(255, 81, 0)" extraInfo="${id}">
-                            Añadir a lista
+                        <a name="" id="" th:text="#{save}" 
+                            th:href="@{'/myList/add?id=' + *{id}}" role="button" onclick="" class="buttonAction" style="color: rgb(255, 81, 0)">
+                            Añadir a la lista
                         </a>
                         <a th:href="@{|/movies/detail/*{id}|}" class="buttonAction" style="color: orange" extraInfo="${id}">
                             Detalles
