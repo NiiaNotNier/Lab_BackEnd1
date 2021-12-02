@@ -3,6 +3,10 @@
     border-radius: 30%;
 }
 
+body {
+    cursor: url("../images/cat.png"), auto;
+}
+
 .top {
     margin-top: 2%;
     display: flex;
